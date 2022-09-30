@@ -12,11 +12,11 @@ import { keyAPI } from '@/env.js'
 export default {
   name: 'App',
   created() {
-    this.queryAPI();
+    this.queryAPI('matrix');
   },
   methods: {
-    queryAPI() {
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${keyAPI}&query=ritorno+al+futuro`).then(
+    queryAPI(inputFilter) {
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${keyAPI}&query=${inputFilter}`).then(
         (response) => {
           console.log('response= ', response);
         }
