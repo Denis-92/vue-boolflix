@@ -31,7 +31,21 @@ export default {
   },
   methods: {
     showIcon(language) {
+      language = this.convertLanguageCode(language);
       return `https://flagicons.lipis.dev/flags/1x1/${language}.svg`;
+    },
+    convertLanguageCode(language) {
+      switch (language) {
+        case 'ja': {
+          language = 'jp';
+          break;
+        }
+        case 'en': {
+          language = 'gb';
+          break;
+        }
+      }
+      return language;
     },
     filter() {
       this.queryAPI(this.search);
