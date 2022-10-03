@@ -9,31 +9,35 @@
 
 <script>
 import axios from 'axios';
-import { keyAPI } from '@/env.js'
+import { keyAPI } from '@/env.js';
 
 export default {
   name: 'App',
   data() {
     return {
-      search: ''
-    }
+      search: '',
+      content: [],
+    };
   },
   methods: {
     filter() {
       this.queryAPI(this.search);
+      this.search = ''; //reset della textbox a fine ricerca
     },
     queryAPI(inputFilter) {
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${keyAPI}&query=${inputFilter}&language=it-IT`).then(
         (response) => {
           console.log('response= ', response);
+          this.content = response.data.results;
+          console.log('array contenuto', this.content);
         }
       ).catch(
         error => {
           console.log('error= ', error.message);
         }
-      )
+      );
     },
-  }
+  },
 }
 </script>
 
