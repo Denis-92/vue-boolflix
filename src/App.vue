@@ -3,6 +3,15 @@
     <h1>TEST TEST</h1>
     <input type="text" v-model="search">
     <button @click="filter">Search</button>
+
+    <div id="content-box">
+      <div v-for="movie in content" :key="movie.id" class="single-content">
+        <p> TITOLO: {{ movie.title }} </p>
+        <p> TITOLO ORIGINALE: {{ movie.original_title }} </p>
+        <p> LINGUA ORIGINALE: {{ movie.original_language }} </p>
+        <p> VOTO: {{ movie.vote_average }} </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -28,8 +37,10 @@ export default {
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${keyAPI}&query=${inputFilter}&language=it-IT`).then(
         (response) => {
           console.log('response= ', response);
-          this.content = response.data.results;
-          console.log('array contenuto', this.content);
+          if (response.status === 200) {
+            this.content = response.data.results;
+            console.log('array contenuto', this.content);
+          }
         }
       ).catch(
         error => {
@@ -43,5 +54,15 @@ export default {
 
 
 <style lang="scss">
+#content-box {
+  background-color: goldenrod;
+  color: white;
+  margin: 0 auto;
+  max-width: 1000px;
+  margin-top: 2%;
+}
 
+.single-content {
+  border: 1px solid black;
+}
 </style>
