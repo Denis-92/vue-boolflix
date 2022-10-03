@@ -8,7 +8,7 @@
       <div v-for="movie in content" :key="movie.id" class="single-content">
         <p> TITOLO: {{ movie.title }} </p>
         <p> TITOLO ORIGINALE: {{ movie.original_title }} </p>
-        <p> LINGUA ORIGINALE: <img :src="showIcon(movie.original_language)" alt="Cover content" class="icon-flag">{{
+        <p> LINGUA ORIGINALE: <img :src="showIcon(movie.original_language)" alt="Flag icon" class="icon-flag">{{
         movie.original_language }} </p>
         <p> VOTO: {{ movie.vote_average }} </p>
       </div>
