@@ -8,7 +8,8 @@
       <div v-for="movie in content" :key="movie.id" class="single-content">
         <p> TITOLO: {{ movie.title }} </p>
         <p> TITOLO ORIGINALE: {{ movie.original_title }} </p>
-        <p> LINGUA ORIGINALE: {{ movie.original_language }} </p>
+        <p> LINGUA ORIGINALE: <img :src="showIcon(movie.original_language)" alt="Cover content" class="icon-flag">{{
+        movie.original_language }} </p>
         <p> VOTO: {{ movie.vote_average }} </p>
       </div>
     </div>
@@ -29,6 +30,9 @@ export default {
     };
   },
   methods: {
+    showIcon(language) {
+      return `https://flagicons.lipis.dev/flags/1x1/${language}.svg`;
+    },
     filter() {
       this.queryAPI(this.search);
       this.search = ''; //reset della textbox a fine ricerca
@@ -64,5 +68,9 @@ export default {
 
 .single-content {
   border: 1px solid black;
+}
+
+.icon-flag {
+  max-width: 12px;
 }
 </style>
