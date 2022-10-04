@@ -6,8 +6,12 @@
             LINGUA ORIGINALE:
             <componentDisplayFlagVue :language="language" />
         </p>
-        <p> VOTO: {{ displayRating() }} </p>
-        <componentImageVue :image="image" />
+
+        <span> VOTO: {{ displayRating() }} </span>
+
+        <div>
+            <componentImageVue :image="image" />
+        </div>
     </div>
 </template>
   
@@ -41,6 +45,6 @@ export default {
   
   
 <style lang="scss" scoped>
-
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss'
 </style>
   

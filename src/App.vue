@@ -8,7 +8,6 @@
       <p class="title">Film</p>
       <componentMoviesVue v-for="movie in content" :key="movie.id" class="single-content" :content="movie" />
       <p class="title">Tv</p>
-      <!-- <componentseriesTvVue v-for="series in seriesTv" :key="series.id" class="single-content" :content="series" /> -->
       <componentCardsVue v-for="series in seriesTv" :key="series.id" class="single-content" :title="series.name"
         :original-title="series.original_name" :language="series.original_language" :vote="series.vote_average"
         :image="series.poster_path" />
@@ -21,14 +20,12 @@
 import axios from 'axios';
 import { keyAPI } from '@/env.js';
 import componentMoviesVue from '@/components/componentMovies.vue';
-// import componentseriesTvVue from '@/components/componentseriesTv.vue';
 import componentCardsVue from '@/components/componentCards.vue';
 
 export default {
   name: 'App',
   components: {
     componentMoviesVue,
-    // componentseriesTvVue,
     componentCardsVue,
   },
   data() {
