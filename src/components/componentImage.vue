@@ -1,5 +1,5 @@
 <template>
-    <img :src="makeDisplayImage()" alt="image cover content">
+    <img :src="makeDisplayImage()" alt="image cover content" @error="missingImage($event)">
 </template>
   
   
@@ -14,7 +14,10 @@ export default {
     methods: {
         makeDisplayImage() {
             return 'https://image.tmdb.org/t/p/w' + this.size + this.image;
-        }
+        },
+        missingImage(event) {
+            event.target.src = 'https://image.shutterstock.com/image-vector/missing-picture-page-website-design-260nw-1552421075.jpg';
+        },
     }
 }
 </script>
