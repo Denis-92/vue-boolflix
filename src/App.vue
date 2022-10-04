@@ -8,7 +8,7 @@
       <p>Film</p>
       <componentMoviesVue v-for="movie in content" :key="movie.id" class="single-content" :content="movie" />
       <p>Tv</p>
-      <componentseriesTvVue v-for="series in content" :key="series.id" class="single-content" :content="series" />
+      <componentseriesTvVue v-for="series in seriesTv" :key="series.id" class="single-content" :content="series" />
     </div>
   </div>
 </template>
