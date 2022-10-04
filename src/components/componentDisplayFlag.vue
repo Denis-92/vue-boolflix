@@ -1,7 +1,6 @@
 <template>
     <div>
-        <img :src="showIcon(content.original_language)" :alt="content.original_language" class="icon-flag"
-            @error="detectErrorFlag($event)">
+        <img :src="showIcon(language)" :alt="language" class="icon-flag" @error="detectErrorFlag($event)">
     </div>
 </template>
   
