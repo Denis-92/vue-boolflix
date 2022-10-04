@@ -5,15 +5,7 @@
     <button @click="filter">Search</button>
 
     <div id="content-box">
-      <div v-for="movie in content" :key="movie.id" class="single-content">
-        <p> TITOLO: {{ movie.title }} </p>
-        <p> TITOLO ORIGINALE: {{ movie.original_title }} </p>
-        <p>
-          LINGUA ORIGINALE: <img :src="showIcon(movie.original_language)" :alt="movie.original_language"
-            class="icon-flag" @error="detectErrorFlag($event)">
-        </p>
-        <p> VOTO: {{ movie.vote_average }} </p>
-      </div>
+      <componentMoviesVue v-for="movie in content" :key="movie.id" class="single-content" :content="movie" />
     </div>
   </div>
 </template>
@@ -22,9 +14,13 @@
 <script>
 import axios from 'axios';
 import { keyAPI } from '@/env.js';
+import componentMoviesVue from '@/components/componentMovies.vue';
 
 export default {
   name: 'App',
+  components: {
+    componentMoviesVue,
+  },
   data() {
     return {
       search: '',
@@ -101,9 +97,5 @@ export default {
 
 .single-content {
   border: 1px solid black;
-}
-
-.icon-flag {
-  max-width: 12px;
 }
 </style>
