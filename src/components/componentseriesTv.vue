@@ -1,7 +1,7 @@
 <template>
-    <div id="movies">
-        <p> TITOLO: {{ content.title }} </p>
-        <p> TITOLO ORIGINALE: {{ content.original_title }} </p>
+    <div id="seriesTV">
+        <p> TITOLO: {{ content.name }} </p>
+        <p> TITOLO ORIGINALE: {{ content.original_name }} </p>
         <p>
             LINGUA ORIGINALE:
             <componentDisplayFlagVue :language="content.original_language" />
@@ -15,7 +15,8 @@
 import componentDisplayFlagVue from '@/components/componentDisplayFlag.vue';
 
 export default {
-    name: 'componentMovies',
+
+    name: 'componentseriesTv',
     components: {
         componentDisplayFlagVue,
     },

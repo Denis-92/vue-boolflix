@@ -5,7 +5,10 @@
     <button @click="filter">Search</button>
 
     <div id="content-box">
+      <p>Film</p>
       <componentMoviesVue v-for="movie in content" :key="movie.id" class="single-content" :content="movie" />
+      <p>Tv</p>
+      <componentseriesTvVue v-for="series in content" :key="series.id" class="single-content" :content="series" />
     </div>
   </div>
 </template>
@@ -15,11 +18,13 @@
 import axios from 'axios';
 import { keyAPI } from '@/env.js';
 import componentMoviesVue from '@/components/componentMovies.vue';
+import componentseriesTvVue from './components/componentseriesTv.vue';
 
 export default {
   name: 'App',
   components: {
     componentMoviesVue,
+    componentseriesTvVue,
   },
   data() {
     return {
