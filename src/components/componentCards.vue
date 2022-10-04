@@ -1,17 +1,19 @@
 <template>
-    <div>
-        <p> TITOLO: {{ title }} </p>
-        <p> TITOLO ORIGINALE: {{ originalTitle }} </p>
-        <p>
-            LINGUA ORIGINALE:
-            <componentDisplayFlagVue :language="language" />
-        </p>
+    <div id="container">
 
-        <span> VOTO: {{ displayRating() }} </span>
-
-        <div>
+        <div class="image">
             <componentImageVue :image="image" />
         </div>
+
+        <div class="description">
+            <p> Titolo: {{ title }} </p>
+            <p> Titolo originale: {{ originalTitle }} </p>
+            <span>
+                <componentDisplayFlagVue :language="language" />
+            </span>
+            <span> Voto: {{ displayRating() }} </span>
+        </div>
+
     </div>
 </template>
   
@@ -45,6 +47,25 @@ export default {
   
   
 <style lang="scss" scoped>
-@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss'
+#container {
+    position: relative
+}
+
+.image {}
+
+.description {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    &:hover {
+        background-color: black;
+        color: white;
+        opacity: 1;
+    }
+}
 </style>
   

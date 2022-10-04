@@ -11,8 +11,8 @@
 
     <div id="content-box">
       <div>
-        <componentCardsVue v-for="movie in content" :key="movie.id" class="single-content" :title="movie.name"
-          :original-title="movie.original_name" :language="movie.original_language" :vote="movie.vote_average"
+        <componentCardsVue v-for="movie in content" :key="movie.id" class="single-content" :title="movie.title"
+          :original-title="movie.title" :language="movie.original_language" :vote="movie.vote_average"
           :image="movie.poster_path" />
       </div>
       <div>
@@ -122,24 +122,16 @@ export default {
   color: white;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: column;
 
   >div {
-    background-color: goldenrod;
     margin: 1%;
-    height: 40%;
+    height: 90%;
     display: flex;
     overflow-x: auto;
-    width: 95%;
-
-    >* {
-      padding: 1%;
-    }
   }
 }
 
 .single-content {
-  border: 1px solid black;
+  padding: 1%;
 }
 </style>
