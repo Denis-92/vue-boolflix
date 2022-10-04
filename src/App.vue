@@ -11,11 +11,11 @@
 
     <div id="content-box">
       <div>
-        <p class="title">Film</p>
-        <componentMoviesVue v-for="movie in content" :key="movie.id" class="single-content" :content="movie" />
+        <componentCardsVue v-for="movie in content" :key="movie.id" class="single-content" :title="movie.name"
+          :original-title="movie.original_name" :language="movie.original_language" :vote="movie.vote_average"
+          :image="movie.poster_path" />
       </div>
       <div>
-        <p class="title">Tv</p>
         <componentCardsVue v-for="series in seriesTv" :key="series.id" class="single-content" :title="series.name"
           :original-title="series.original_name" :language="series.original_language" :vote="series.vote_average"
           :image="series.poster_path" />
@@ -28,13 +28,11 @@
 <script>
 import axios from 'axios';
 import { keyAPI } from '@/env.js';
-import componentMoviesVue from '@/components/componentMovies.vue';
 import componentCardsVue from '@/components/componentCards.vue';
 
 export default {
   name: 'App',
   components: {
-    componentMoviesVue,
     componentCardsVue,
   },
   data() {
@@ -129,16 +127,19 @@ export default {
 
   >div {
     background-color: goldenrod;
-    margin: 2%;
+    margin: 1%;
     height: 40%;
+    display: flex;
+    overflow-x: auto;
+    width: 95%;
+
+    >* {
+      padding: 1%;
+    }
   }
 }
 
 .single-content {
   border: 1px solid black;
-}
-
-.title {
-  background-color: red;
 }
 </style>
