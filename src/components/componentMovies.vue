@@ -7,17 +7,20 @@
             <componentDisplayFlagVue :language="content.original_language" />
         </p>
         <p> VOTO: {{ content.vote_average }} </p>
+        <componentImageVue :image="content.poster_path" size="500" />
     </div>
 </template>
   
   
 <script>
 import componentDisplayFlagVue from '@/components/componentDisplayFlag.vue';
+import componentImageVue from '@/components/componentImage.vue';
 
 export default {
     name: 'componentMovies',
     components: {
         componentDisplayFlagVue,
+        componentImageVue,
     },
     props: {
         content: Object,
