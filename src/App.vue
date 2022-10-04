@@ -1,16 +1,25 @@
 <template>
   <div id="app">
-    <h1>TEST TEST</h1>
-    <input type="text" v-model="search">
-    <button @click="filter">Search</button>
+
+    <div id="header">
+      <h1>BOOLFLIX</h1>
+      <div>
+        <input type="text" v-model="search">
+        <button @click="filter">Search</button>
+      </div>
+    </div>
 
     <div id="content-box">
-      <p class="title">Film</p>
-      <componentMoviesVue v-for="movie in content" :key="movie.id" class="single-content" :content="movie" />
-      <p class="title">Tv</p>
-      <componentCardsVue v-for="series in seriesTv" :key="series.id" class="single-content" :title="series.name"
-        :original-title="series.original_name" :language="series.original_language" :vote="series.vote_average"
-        :image="series.poster_path" />
+      <div>
+        <p class="title">Film</p>
+        <componentMoviesVue v-for="movie in content" :key="movie.id" class="single-content" :content="movie" />
+      </div>
+      <div>
+        <p class="title">Tv</p>
+        <componentCardsVue v-for="series in seriesTv" :key="series.id" class="single-content" :title="series.name"
+          :original-title="series.original_name" :language="series.original_language" :vote="series.vote_average"
+          :image="series.poster_path" />
+      </div>
     </div>
   </div>
 </template>
@@ -94,12 +103,35 @@ export default {
 
 
 <style lang="scss">
-#content-box {
-  background-color: goldenrod;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#header {
+  background-color: black;
   color: white;
-  margin: 0 auto;
-  max-width: 1000px;
-  margin-top: 2%;
+  height: 10vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#content-box {
+  height: 90vh;
+  background-color: grey;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  >div {
+    background-color: goldenrod;
+    margin: 2%;
+    height: 40%;
+  }
 }
 
 .single-content {
