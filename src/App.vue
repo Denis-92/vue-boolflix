@@ -8,8 +8,10 @@
       <div v-for="movie in content" :key="movie.id" class="single-content">
         <p> TITOLO: {{ movie.title }} </p>
         <p> TITOLO ORIGINALE: {{ movie.original_title }} </p>
-        <p> LINGUA ORIGINALE: <img :src="showIcon(movie.original_language)" alt="Flag icon" class="icon-flag">{{
-        movie.original_language }} </p>
+        <p>
+          LINGUA ORIGINALE: <img :src="showIcon(movie.original_language)" :alt="movie.original_language"
+            class="icon-flag" @error="detectErrorFlag($event)">
+        </p>
         <p> VOTO: {{ movie.vote_average }} </p>
       </div>
     </div>
@@ -27,6 +29,7 @@ export default {
     return {
       search: '',
       content: [],
+      seriesTv: [],
     };
   },
   methods: {
@@ -47,6 +50,9 @@ export default {
       }
       return language;
     },
+    detectErrorFlag(event) {
+      event.target.src = `https://flagicons.lipis.dev/flags/1x1/xx.svg`;
+    },
     filter() {
       this.queryAPI(this.search);
       this.search = ''; //reset della textbox a fine ricerca
@@ -54,11 +60,16 @@ export default {
     queryAPI(inputFilter) {
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${keyAPI}&query=${inputFilter}&language=it-IT`).then(
         (response) => {
-          console.log('response= ', response);
-          if (response.status === 200) {
-            this.content = response.data.results;
-            console.log('array contenuto', this.content);
-          }
+          this.content = this.makeResponseAPI(response);
+        }
+      ).catch(
+        error => {
+          console.log('error= ', error.message);
+        }
+      );
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${keyAPI}&query=${inputFilter}&language=it-IT`).then(
+        (response) => {
+          this.seriesTv = this.makeResponseAPI(response);
         }
       ).catch(
         error => {
@@ -66,6 +77,14 @@ export default {
         }
       );
     },
+    makeResponseAPI(response) {
+      console.log('response= ', response);
+      if (response.status === 200) {
+        return response.data.results;
+      } else {
+        return [];
+      }
+    }
   },
 }
 </script>
