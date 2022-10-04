@@ -3,16 +3,17 @@
 
         <div class="image">
             <componentImageVue :image="image" />
+            <div class="description">
+                <p> Titolo: {{ title }} </p>
+                <p> Titolo originale: {{ originalTitle }} </p>
+                <span>
+                    <componentDisplayFlagVue :language="language" />
+                </span>
+                <span> Voto: {{ displayRating() }} </span>
+            </div>
         </div>
 
-        <div class="description">
-            <p> Titolo: {{ title }} </p>
-            <p> Titolo originale: {{ originalTitle }} </p>
-            <span>
-                <componentDisplayFlagVue :language="language" />
-            </span>
-            <span> Voto: {{ displayRating() }} </span>
-        </div>
+
 
     </div>
 </template>
