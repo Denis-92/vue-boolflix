@@ -6,7 +6,7 @@
             LINGUA ORIGINALE:
             <componentDisplayFlagVue :language="language" />
         </p>
-        <p> VOTO: {{ vote }} </p>
+        <p> VOTO: {{ displayRating() }} </p>
         <componentImageVue :image="image" />
     </div>
 </template>
@@ -15,6 +15,8 @@
 <script>
 import componentDisplayFlagVue from '@/components/componentDisplayFlag.vue';
 import componentImageVue from '@/components/componentImage.vue';
+
+const CONVERT_OUT_OF_5 = 2;
 
 export default {
     name: 'componentCards',
@@ -28,6 +30,11 @@ export default {
         language: String,
         vote: Number,
         image: String,
+    },
+    methods: {
+        displayRating() {
+            return Math.ceil(this.vote / CONVERT_OUT_OF_5);
+        }
     },
 }
 </script>
