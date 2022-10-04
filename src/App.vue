@@ -5,9 +5,9 @@
     <button @click="filter">Search</button>
 
     <div id="content-box">
-      <p>Film</p>
+      <p class="title">Film</p>
       <componentMoviesVue v-for="movie in content" :key="movie.id" class="single-content" :content="movie" />
-      <p>Tv</p>
+      <p class="title">Tv</p>
       <componentseriesTvVue v-for="series in seriesTv" :key="series.id" class="single-content" :content="series" />
     </div>
   </div>
@@ -102,5 +102,9 @@ export default {
 
 .single-content {
   border: 1px solid black;
+}
+
+.title {
+  background-color: red;
 }
 </style>

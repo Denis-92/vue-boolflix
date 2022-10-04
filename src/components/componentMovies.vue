@@ -7,7 +7,7 @@
             <componentDisplayFlagVue :language="content.original_language" />
         </p>
         <p> VOTO: {{ content.vote_average }} </p>
-        <componentImageVue :image="content.poster_path" size="500" />
+        <componentImageVue :image="content.poster_path" size='' />
     </div>
 </template>
   

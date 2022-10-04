@@ -9,11 +9,12 @@ export default {
     name: 'componentImage',
     props: {
         image: String,
-        size: Number,
+        size: String,
     },
     methods: {
         makeDisplayImage() {
-            return 'https://image.tmdb.org/t/p/w' + this.size + this.image;
+            const size = this.size || 300;
+            return 'https://image.tmdb.org/t/p/w' + size + this.image;
         },
         missingImage(event) {
             event.target.src = 'https://image.shutterstock.com/image-vector/missing-picture-page-website-design-260nw-1552421075.jpg';
