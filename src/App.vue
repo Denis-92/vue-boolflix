@@ -12,7 +12,7 @@
     <div id="content-box">
       <div>
         <componentCardsVue v-for="movie in content" :key="movie.id" class="single-content" :title="movie.title"
-          :original-title="movie.title" :language="movie.original_language" :vote="movie.vote_average"
+          :original-title="movie.original_title" :language="movie.original_language" :vote="movie.vote_average"
           :image="movie.poster_path" />
       </div>
       <div>
@@ -132,6 +132,7 @@ export default {
 }
 
 .single-content {
-  padding: 1%;
+  margin: 1%;
+  border: 1px solid white;
 }
 </style>

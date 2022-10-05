@@ -52,15 +52,14 @@ export default {
     position: relative
 }
 
-.image {}
-
 .description {
     opacity: 0;
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 90%;
     width: 100%;
+    padding: 2rem 1rem;
 
     &:hover {
         background-color: black;
