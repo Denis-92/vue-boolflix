@@ -119,13 +119,11 @@ export default {
 #content-box {
   height: 90vh;
   background-color: grey;
-  color: white;
   display: flex;
   justify-content: center;
 
   >div {
     margin: 1%;
-    height: 90%;
     display: flex;
     overflow-x: auto;
   }
@@ -134,5 +132,6 @@ export default {
 .single-content {
   margin: 1%;
   border: 1px solid white;
+  height: 90%;
 }
 </style>

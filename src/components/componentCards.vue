@@ -1,20 +1,14 @@
 <template>
-    <div id="container">
-
-        <div class="image">
-            <componentImageVue :image="image" />
-            <div class="description">
-                <p> Titolo: {{ title }} </p>
-                <p> Titolo originale: {{ originalTitle }} </p>
-                <span>
-                    <componentDisplayFlagVue :language="language" />
-                </span>
-                <span> Voto: {{ displayRating() }} </span>
-            </div>
+    <div class="relative">
+        <componentImageVue :image="image" />
+        <div class="description">
+            <p> Titolo: {{ title }} </p>
+            <p> Titolo originale: {{ originalTitle }} </p>
+            <span>
+                <componentDisplayFlagVue :language="language" />
+            </span>
+            <span> Voto: {{ displayRating() }} </span>
         </div>
-
-
-
     </div>
 </template>
   
@@ -48,7 +42,7 @@ export default {
   
   
 <style lang="scss" scoped>
-#container {
+.relative {
     position: relative
 }
 
@@ -57,7 +51,7 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    height: 90%;
+    height: 100%;
     width: 100%;
     padding: 2rem 1rem;
 

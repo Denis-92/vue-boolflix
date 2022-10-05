@@ -13,7 +13,7 @@ export default {
     },
     methods: {
         makeDisplayImage() {
-            const size = this.size || 300;
+            const size = this.size || 342;
             return 'https://image.tmdb.org/t/p/w' + size + this.image;
         },
         missingImage(event) {
@@ -25,7 +25,5 @@ export default {
   
   
 <style lang="scss" scoped>
-img {
-    height: 100%;
-}
+
 </style>
